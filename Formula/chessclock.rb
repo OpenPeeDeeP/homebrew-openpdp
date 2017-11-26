@@ -73,11 +73,11 @@ class Chessclock < Formula
     Language::Go.stage_deps resources, buildpath/"src"
     cd bin_path do
       ldflags = "-s -w -X main.version=#{version}"
-      system "go", "build", "-ldflags", ldflags, "-o", "#{bin}/cc", "./cmd/cc"
+      system "go", "build", "-ldflags", ldflags, "-o", "#{bin}/clock", "./cmd/cc"
     end
   end
 
   test do
-    system bin/"cc", "help"
+    system bin/"clock", "help"
   end
 end
